@@ -32,7 +32,7 @@ function Logo() {
       </svg>
       <span className="leading-tight">
         <span className="block text-sm font-extrabold tracking-[0.14em] text-white">
-          MOHAMMED <span className="text-accent">ALI</span>
+          MOHAMMED A. <span className="text-accent">ALI</span>
         </span>
         <span className="block text-[10px] font-medium uppercase tracking-[0.3em] text-slate-400">
           Structural Engineer
