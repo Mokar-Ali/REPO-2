@@ -2,23 +2,6 @@ import { BarChart3, Box, Wrench } from "lucide-react";
 import { skills } from "./data";
 import { SectionHeading } from "./ui";
 
-function SkillBar({ name, pct }) {
-  return (
-    <div>
-      <div className="flex items-baseline justify-between text-sm">
-        <span className="font-semibold text-white">{name}</span>
-        <span className="text-slate-400">{pct}%</span>
-      </div>
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-accent-dim to-accent"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </div>
-  );
-}
-
 export default function Skills() {
   return (
     <section id="skills" className="relative overflow-hidden py-28">
@@ -34,51 +17,97 @@ export default function Skills() {
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {/* Structural Analysis & FEM */}
           <div className="card p-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <BarChart3 className="h-6 w-6 text-accent-light" />
               <h3 className="text-base font-bold text-white">
-                {skills.analysis.title}
+                Structural Analysis & FEM
               </h3>
             </div>
-            <div className="mt-7 space-y-6">
-              {skills.analysis.items.map((s) => (
-                <SkillBar key={s.name} {...s} />
-              ))}
+            <div className="space-y-5">
+              <div className="flex justify-between items-center">
+                <span className="text-white">RFEM (DLUBAL)</span>
+                <span className="text-accent-light font-medium">Proficient</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">ETABS</span>
+                <span className="text-accent-light font-medium">Advanced</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">SAP2000</span>
+                <span className="text-accent-light font-medium">Advanced</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">SOFiSTiK</span>
+                <span className="text-accent-light font-medium">Proficient</span>
+              </div>
             </div>
           </div>
 
+          {/* BIM & CAD */}
           <div className="card p-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <Box className="h-6 w-6 text-accent-light" />
               <h3 className="text-base font-bold text-white">
-                {skills.bim.title}
+                BIM & CAD
               </h3>
             </div>
-            <div className="mt-7 space-y-6">
-              {skills.bim.items.map((s) => (
-                <SkillBar key={s.name} {...s} />
-              ))}
+            <div className="space-y-5">
+              <div className="flex justify-between items-center">
+                <span className="text-white">Revit</span>
+                <span className="text-accent-light font-medium">Advanced</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">AutoCAD</span>
+                <span className="text-accent-light font-medium">Advanced</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">ArchiCAD</span>
+                <span className="text-accent-light font-medium">Advanced</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">Desite MD</span>
+                <span className="text-accent-light font-medium">Proficient</span>
+              </div>
             </div>
           </div>
 
+          {/* Project Planning + Additional Skills */}
           <div className="card p-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <Wrench className="h-6 w-6 text-accent-light" />
               <h3 className="text-base font-bold text-white">
-                Core Competencies
+                Project Planning & Controls
               </h3>
             </div>
-            <ul className="mt-7 flex flex-wrap gap-2.5">
-              {skills.competencies.map((c) => (
-                <li
-                  key={c}
-                  className="rounded-full border border-accent/25 bg-accent/5 px-4 py-2 text-xs font-medium text-slate-200 transition-colors hover:border-accent/60 hover:text-white"
+            <div className="space-y-5 mb-8">
+              <div className="flex justify-between items-center">
+                <span className="text-white">Primavera P6</span>
+                <span className="text-accent-light font-medium">Proficient</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white">MS Project</span>
+                <span className="text-accent-light font-medium">Proficient</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 mb-4">
+              <Wrench className="h-6 w-6 text-accent-light" />
+              <h3 className="text-base font-bold text-white">
+                Additional Skills
+              </h3>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {["QGIS", "MATLAB", "Eurocodes", "NZS 3101", "FEMA 356", "Ethiopian code EBCS"].map((item, i) => (
+                <span
+                  key={i}
+                  className="rounded-full border border-accent/25 bg-accent/5 px-4 py-2 text-sm font-medium text-slate-200 hover:border-accent/60 hover:text-white transition-colors"
                 >
-                  {c}
-                </li>
+                  {item}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

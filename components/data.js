@@ -17,7 +17,7 @@ export const profile = {
 
 export const stats = [
   { icon: "calendar", value: "5+", label: "Years of Experience" },
-  { icon: "graduation", value: "2", label: "Master's Degrees" },
+  { icon: "graduation", value: "", label: "Master's Degree" },
   { icon: "building", value: "Structural & Seismic", label: "Engineering Specialist" },
   { icon: "cube", value: "BIM & Digital", label: "Engineering Expertise" },
   { icon: "users", value: "Project Management", label: "Experience" },
@@ -41,10 +41,10 @@ export const about = {
     },
   ],
   languages: [
-    { name: "English", level: "Advanced", pct: 90 },
-    { name: "Somali", level: "Advanced", pct: 95 },
-    { name: "Amharic", level: "Advanced", pct: 95 },
-    { name: "German", level: "Elementary", pct: 35 },
+    { name: "English", level: "Fluent" },
+    { name: "Somali", level: "Fluent",  },
+    { name: "Amharic", level: "Fluent",  },
+    { name: "German", level: "Intermediate", },
   ],
 };
 

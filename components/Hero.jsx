@@ -37,7 +37,7 @@ export default function Hero() {
             <span className="eyebrow">{profile.role}</span>
 
             <h1 className="mt-8 text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Mohammed <span className="text-accent">Ali</span>
+              Mohammed A. <span className="text-accent">Ali</span>
             </h1>
 
             <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-semibold text-slate-100 sm:text-xl">
@@ -106,7 +106,7 @@ export default function Hero() {
             <div className="absolute bottom-0 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl" />
             <Image
               src="/profile-transparent.png"
-              alt="Portrait of Mohammed Ali"
+              alt="Portrait of Mohammed A. Ali"
               width={600}
               height={768}
               priority

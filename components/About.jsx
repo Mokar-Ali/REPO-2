@@ -49,24 +49,16 @@ export default function About() {
             </dl>
           </div>
 
-          {/* Languages */}
+          {/* Languages - Larger middle gap */}
           <div className="card p-8">
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-light">
               Languages
             </h3>
-            <div className="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-4">
               {about.languages.map((l) => (
-                <div key={l.name}>
-                  <div className="flex items-baseline justify-between text-sm">
-                    <span className="font-semibold text-white">{l.name}</span>
-                    <span className="text-slate-400">{l.level}</span>
-                  </div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-accent-dim to-accent"
-                      style={{ width: `${l.pct}%` }}
-                    />
-                  </div>
+                <div key={l.name} className="flex items-center justify-between">
+                  <span className="font-semibold text-white">{l.name}</span>
+                  <span className="text-slate-400">{l.level}</span>
                 </div>
               ))}
             </div>
