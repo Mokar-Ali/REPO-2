@@ -1,26 +1,12 @@
 "use client";
 
-import { useState } from "react";
+"use client";
+
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { profile } from "./data";
 import { SectionHeading } from "./ui";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-
-  const handleSend = () => {
-    const subject = encodeURIComponent(
-      `Portfolio inquiry from ${form.name || "your website"}`
-    );
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name}${form.email ? ` (${form.email})` : ""}`
-    );
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-  };
-
-  const field =
-    "w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-accent";
-
   return (
     <section id="contact" className="relative overflow-hidden py-28">
       <div className="blueprint-grid absolute inset-0 opacity-60" />
@@ -82,52 +68,63 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* Message — opens the visitor's email client, no backend needed */}
+          {/* Formspree Form with Custom Subject */}
           <div className="card p-8">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Your name
-                </span>
-                <input
-                  type="text"
-                  className={field}
-                  placeholder="Jane Doe"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+            <form action="https://formspree.io/f/xgogkapg" method="POST" className="space-y-6">
+              {/* Hidden field for custom email subject */}
+              <input type="hidden" name="_subject" value="New Portfolio Inquiry from Website!" />
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-accent"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    Your email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-accent"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows={6}
+                  required
+                  className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-accent resize-y min-h-[160px]"
+                  placeholder="Tell me about your project…"
                 />
-              </label>
-              <label className="block">
-                <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Your email
-                </span>
-                <input
-                  type="email"
-                  className={field}
-                  placeholder="jane@example.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-              </label>
-            </div>
-            <label className="mt-5 block">
-              <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Message
-              </span>
-              <textarea
-                rows={6}
-                className={field}
-                placeholder="Tell me about your project…"
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-              />
-            </label>
-            <button type="button" onClick={handleSend} className="btn-primary mt-6">
-              <Send className="h-4 w-4" />
-              Send message
-            </button>
-            <p className="mt-3 text-xs text-slate-500">
-              Opens your email app with the message pre-filled.
+              </div>
+
+              <button
+                type="submit"
+                className="btn-primary mt-6 flex w-full items-center justify-center gap-2"
+              >
+                <Send className="h-4 w-4" />
+                Send Message
+              </button>
+            </form>
+
+            <p className="mt-3 text-xs text-slate-500 text-center">
+              Your message will be sent directly to my email.
             </p>
           </div>
         </div>
@@ -135,3 +132,4 @@ export default function Contact() {
     </section>
   );
 }
+  
