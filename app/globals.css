@@ -1,0 +1,106 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-950: #060d1f;
+  --navy-900: #0a1428;
+  --accent: #2f7bff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--navy-950);
+  color: #e6edf7;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(47, 123, 255, 0.35);
+}
+
+@layer components {
+  /* Eyebrow pill, as in the hero: STRUCTURAL ENGINEER | PROJECT MANAGER */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-light;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-12;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-accent-light hover:shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.02] px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:border-accent hover:text-accent-light;
+  }
+}
+
+/* Diagonal light streak used across sections, echoing the hero's slashes */
+.diagonal-streak {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(47, 123, 255, 0.6),
+    transparent
+  );
+  transform: rotate(24deg);
+  pointer-events: none;
+}
+
+/* Subtle grid texture behind sections */
+.blueprint-grid {
+  background-image: linear-gradient(rgba(47, 123, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 123, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* Accent underline under section titles, like the hero divider */
+.title-rule {
+  @apply mt-5 h-[3px] w-16 rounded-full bg-accent;
+}
+
+/* Timeline connector */
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    rgba(47, 123, 255, 0.7),
+    rgba(47, 123, 255, 0.12)
+  );
+}
