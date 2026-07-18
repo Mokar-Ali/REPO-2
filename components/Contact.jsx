@@ -66,10 +66,9 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* Formspree Form with Custom Subject */}
+          {/* Formspree Form */}
           <div className="card p-8">
             <form action="https://formspree.io/f/xgogkapg" method="POST" className="space-y-6">
-              {/* Hidden field for custom email subject */}
               <input type="hidden" name="_subject" value="New Portfolio Inquiry from Website!" />
 
               <div className="grid gap-5 sm:grid-cols-2">
@@ -120,10 +119,6 @@ export default function Contact() {
                 Send Message
               </button>
             </form>
-
-            <p className="mt-3 text-xs text-slate-500 text-center">
-              Your message will be sent directly to my email.
-            </p>
           </div>
         </div>
       </div>
